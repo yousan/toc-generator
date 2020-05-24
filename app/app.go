@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"io"
 	"os"
+	"runtime"
 	"strings"
 	"io/ioutil"
 	"net/http"
@@ -107,6 +108,10 @@ func ToUL(num int, heading string) string {
 
 func Default() *gin.Engine {
 	router := gin.Default()
+	pc, file, line, _  := runtime.Caller(1)
+	fmt.Printf("Called from %s, line #%d, func: %v\n",
+		file, line, runtime.FuncForPC(pc).Name())
+
 	path, _ := os.Getwd()
 	router.LoadHTMLGlob(path + "/templates/*.html")
 	data := "Hello Go/Gin!!"
