@@ -133,8 +133,8 @@ func Default() *gin.Engine {
 		file, line, runtime.FuncForPC(pc).Name())
 	d, _ := filepath.Split(file)
 	fmt.Print(d)
-	router.LoadHTMLGlob(d + "templates/*.html")
 	fmt.Println(dirwalk(d))
+	router.LoadHTMLGlob(d + "templates/*.html")
 	data := "Hello Go/Gin!!"
 
 	router.GET("/", func(ctx *gin.Context) {
