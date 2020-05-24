@@ -5,14 +5,13 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"io"
-	"os"
-	"path/filepath"
-	"runtime"
-	"strings"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
+	"path/filepath"
 	"regexp"
+	"strings"
 )
 
 func getPostUrl(ctx *gin.Context) (string, error) {
@@ -128,13 +127,17 @@ func dirwalk(dir string) []string {
 
 func Default() *gin.Engine {
 	router := gin.Default()
-	pc, file, line, _  := runtime.Caller(1)
-	fmt.Printf("Called from %s, line #%d, func: %v\n",
-		file, line, runtime.FuncForPC(pc).Name())
-	d, _ := filepath.Split(file)
-	fmt.Print(d)
-	// fmt.Println(dirwalk(d))
-	router.LoadHTMLGlob(d + "templates/*.html")
+	path, _ := os.Getwd()
+	router.LoadHTMLGlob(path + "templates/*.html")
+
+	//pc, file, line, _  := runtime.Caller(1)
+	//fmt.Printf("Called from %s, line #%d, func: %v\n",
+	//	file, line, runtime.FuncForPC(pc).Name())
+	//d, _ := filepath.Split(file)
+	//fmt.Print(d)
+	//// fmt.Println(dirwalk(d))
+	//router.LoadHTMLGlob(d + "templates/*.html")
+
 	data := "Hello Go/Gin!!"
 
 	router.GET("/", func(ctx *gin.Context) {
