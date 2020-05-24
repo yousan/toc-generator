@@ -141,7 +141,12 @@ func Default() *gin.Engine {
 	//// fmt.Println(dirwalk(d))
 	//router.LoadHTMLGlob(d + "templates/*.html")
 
-	router.LoadHTMLFiles("templates/index.html")
+	// loadHTMLFilesバージョン
+	// 相対パス
+	// router.LoadHTMLFiles("templates/index.html")
+	// 絶対パス1
+	path, _ := os.Getwd()
+	router.LoadHTMLFiles(path + "/templates/index.html")
 
 	data := "Hello Go/Gin!!"
 
