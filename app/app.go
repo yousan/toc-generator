@@ -107,8 +107,7 @@ func ToUL(num int, heading string) string {
 
 func Default() *gin.Engine {
 	router := gin.Default()
-	router.LoadHTMLGlob("app/templates/*.html")
-
+	router.LoadHTMLGlob("templates/*.html")
 	data := "Hello Go/Gin!!"
 
 	router.GET("/", func(ctx *gin.Context) {
@@ -143,6 +142,7 @@ func Default() *gin.Engine {
 	uls := ParseMarkdownToUl(lines)
 	fmt.Printf("%s\n", uls)
 
+//	router.Run()
 	return router
 }
 
