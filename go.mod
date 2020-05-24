@@ -1,4 +1,4 @@
-module toc-generator
+module module github.com/yousan/toc-generator
 
 go 1.13
 
