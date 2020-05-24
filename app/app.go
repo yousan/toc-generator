@@ -145,10 +145,12 @@ func Default() *gin.Engine {
 	// loadHTMLFilesバージョン
 	// 相対パス
 	// router.LoadHTMLFiles("templates/index.html")
+
 	// 絶対パス1
 	// path, _ := os.Getwd()
 	// router.LoadHTMLFiles(path + "/templates/index.html")
 	// 結果 open /var/task/templates/index.html: no such file or directory
+
 	// 絶対パス2
 	_, file, _, _  := runtime.Caller(1)
 	//fmt.Printf("Called from %s, line #%d, func: %v\n",
@@ -156,7 +158,7 @@ func Default() *gin.Engine {
 	d, _ := filepath.Split(file)
 	//fmt.Print(d)
 	//// fmt.Println(dirwalk(d))
-	router.LoadHTMLGlob(d + "templates/*.html")
+	router.LoadHTMLFiles(d + "templates/index.html")
 
 
 	data := "Hello Go/Gin!!"
