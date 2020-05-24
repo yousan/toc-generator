@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"io"
 	"os"
+	"path/filepath"
 	"runtime"
 	"strings"
 	"io/ioutil"
@@ -111,9 +112,9 @@ func Default() *gin.Engine {
 	pc, file, line, _  := runtime.Caller(1)
 	fmt.Printf("Called from %s, line #%d, func: %v\n",
 		file, line, runtime.FuncForPC(pc).Name())
-
-	path, _ := os.Getwd()
-	router.LoadHTMLGlob(path + "/templates/*.html")
+	d, _ := filepath.Split(file)
+	fmt.Print(d)
+	router.LoadHTMLGlob(d + "/templates/*.html")
 	data := "Hello Go/Gin!!"
 
 	router.GET("/", func(ctx *gin.Context) {
