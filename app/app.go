@@ -107,6 +107,25 @@ func ToUL(num int, heading string) string {
 	return ret
 }
 
+
+func dirwalk(dir string) []string {
+	files, err := ioutil.ReadDir(dir)
+	if err != nil {
+		panic(err)
+	}
+
+	var paths []string
+	for _, file := range files {
+		if file.IsDir() {
+			paths = append(paths, dirwalk(filepath.Join(dir, file.Name()))...)
+			continue
+		}
+		paths = append(paths, filepath.Join(dir, file.Name()))
+	}
+
+	return paths
+}
+
 func Default() *gin.Engine {
 	router := gin.Default()
 	pc, file, line, _  := runtime.Caller(1)
@@ -115,6 +134,7 @@ func Default() *gin.Engine {
 	d, _ := filepath.Split(file)
 	fmt.Print(d)
 	router.LoadHTMLGlob(d + "templates/*.html")
+	fmt.Println(dirwalk(d))
 	data := "Hello Go/Gin!!"
 
 	router.GET("/", func(ctx *gin.Context) {
