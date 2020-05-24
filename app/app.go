@@ -152,13 +152,16 @@ func Default() *gin.Engine {
 	// 結果 open /var/task/templates/index.html: no such file or directory
 
 	// 絶対パス2
+	//_, file, _, _  := runtime.Caller(1)
+	//d, _ := filepath.Split(file)
+	//router.LoadHTMLFiles(d + "templates/index.html")
+	// open /tmp/79de381b/src/lambda/handler/templates/index.html: no such file or directory
+
+	// 絶対パス3
 	_, file, _, _  := runtime.Caller(1)
-	//fmt.Printf("Called from %s, line #%d, func: %v\n",
-	//	file, line, runtime.FuncForPC(pc).Name())
 	d, _ := filepath.Split(file)
-	//fmt.Print(d)
-	//// fmt.Println(dirwalk(d))
-	router.LoadHTMLFiles(d + "templates/index.html")
+	router.LoadHTMLFiles(d + "../templates/index.html")
+
 
 
 	data := "Hello Go/Gin!!"
