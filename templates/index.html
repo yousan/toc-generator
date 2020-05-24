@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Sample App</title>
+    <style>
+        div {
+            padding: 10px
+        }
+        button {
+            padding: 10px;
+        }
+        input { padding: 10px
+        }
+    </style>
+</head>
+<body style="padding: 30px">
+
+<h1>ToC Generator</h1>
+<div style="padding: 20px">
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">GitHub Wiki URL</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter wiki URL"
+               name="url"
+                {{if .url}}
+               value="{{.url}}"
+                {{else}}
+               value="https://github.com/yousan/toc-generator/wiki/testpage"
+                {{end}}
+        >
+        <small id="emailHelp" class="form-text text-muted">e.g. https://github.com/yousan/toc-generator/wiki/testpage</small>
+    </div>
+    <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <hr>
+    <div>
+        <span>Markdown raw URL</span>
+        <input type="text" class="form-control" readonly
+               id="rawurl" aria-describedby="emailHelp" placeholder="Enter wiki URL"
+        value="{{.rawurl}}"
+        >
+    </div>
+    <div>
+        <h5>Raw Markdown body</h5>
+        <textarea style="width:100%; height: 200px">{{.rawbody}}</textarea>
+    </div>
+    <div>
+        <h5>ToC Markdown</h5>
+        <textarea style="width:100%; height: 200px">{{.toc}}</textarea>
+    </div>
+</form>
+</div>
+</body>
+</html>
