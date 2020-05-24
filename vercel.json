@@ -1,9 +1,9 @@
 {
     "version": 2,
     "builds": [
-        { "src": "/index.go", "use": "@now/go" }
+        { "src": "/zeit.go", "use": "@now/go" }
     ],
     "routes": [
-        { "src": "/", "dest": "index.go" }
+        { "src": "/", "dest": "zeit.go" }
     ]
 }
