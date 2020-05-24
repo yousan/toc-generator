@@ -128,7 +128,7 @@ func dirwalk(dir string) []string {
 func Default() *gin.Engine {
 	router := gin.Default()
 	path, _ := os.Getwd()
-	router.LoadHTMLGlob(path + "templates/*.html")
+	router.LoadHTMLGlob(path + "/templates/*.html")
 
 	//pc, file, line, _  := runtime.Caller(1)
 	//fmt.Printf("Called from %s, line #%d, func: %v\n",
