@@ -1,4 +1,4 @@
-package main
+package handler
 
 import (
 	"errors"
@@ -105,7 +105,7 @@ func ToUL(num int, heading string) string {
 	return ret
 }
 
-func main() {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
 

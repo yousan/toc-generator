@@ -1,0 +1,23 @@
+{
+  "name": "toc-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "vercel": "^19.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yousan/toc-generator.git"
+  },
+  "author": "Yousan_O (https://2017.l2tp.org)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yousan/toc-generator/issues"
+  },
+  "homepage": "https://github.com/yousan/toc-generator#readme"
+}
