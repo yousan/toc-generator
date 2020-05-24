@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         { "src": "/zeit.go", "use": "@now/go" },
-        { "src": "/templates/*", "use": "@now/static" }
+        { "src": "/templates/*.html", "use": "@now/static" }
     ],
     "routes": [
         { "src": "/", "dest": "zeit.go" }
