@@ -107,7 +107,7 @@ func ToUL(num int, heading string) string {
 
 func Default() *gin.Engine {
 	router := gin.Default()
-	router.LoadHTMLGlob("templates/*.html")
+	router.LoadHTMLGlob("./templates/*.html")
 
 	data := "Hello Go/Gin!!"
 
