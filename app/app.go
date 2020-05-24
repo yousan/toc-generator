@@ -105,7 +105,7 @@ func ToUL(num int, heading string) string {
 	return ret
 }
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func Default() *gin.Engine {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
 
@@ -143,7 +143,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	uls := ParseMarkdownToUl(lines)
 	fmt.Printf("%s\n", uls)
 
-	router.Run()
+	return router
 }
 
 func readBytes(filename string) (string, error) {
