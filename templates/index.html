@@ -6,12 +6,19 @@
     <title>Sample App</title>
     <style>
         div {
-            padding: 10px
+            padding: 5px
+        }
+        .form-group {
+            margin-bottom: 1px;
         }
         button {
-            padding: 10px;
+            padding: 5px;
         }
-        input { padding: 10px
+        input {
+            padding: 5px
+        }
+        hr {
+            margin: 0;
         }
     </style>
 </head>
@@ -22,6 +29,9 @@
 <form>
     <div class="form-group">
         <label for="exampleInputEmail1">GitHub Wiki URL</label>
+        <small id="emailHelp" class="form-text text-muted" style="display: inline">
+            e.g. https://github.com/yousan/toc-generator/wiki/testpage
+        </small>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter wiki URL"
                name="url"
                 {{if .url}}
@@ -30,10 +40,7 @@
                value="https://github.com/yousan/toc-generator/wiki/testpage"
                 {{end}}
         >
-        <small id="emailHelp" class="form-text text-muted">e.g. https://github.com/yousan/toc-generator/wiki/testpage</small>
-    </div>
-    <div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="margin-top: 5px;">Submit</button>
     </div>
     <hr>
     <div>

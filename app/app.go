@@ -11,7 +11,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"runtime"
 	"strings"
 )
 
@@ -129,6 +128,9 @@ func dirwalk(dir string) []string {
 func Default() *gin.Engine {
 	router := gin.Default()
 
+	// スタンダードにローカルで動く方法
+	router.LoadHTMLGlob("templates/*.html")
+
 	// osを使う方法
 	// path, _ := os.Getwd()
 	// router.LoadHTMLGlob(path + "/templates/*.html")
@@ -158,9 +160,9 @@ func Default() *gin.Engine {
 	// open /tmp/79de381b/src/lambda/handler/templates/index.html: no such file or directory
 
 	// 絶対パス3
-	_, file, _, _  := runtime.Caller(1)
-	d, _ := filepath.Split(file)
-	router.LoadHTMLFiles(d + "../templates/index.html")
+	// _, file, _, _  := runtime.Caller(1)
+	// d, _ := filepath.Split(file)
+	// router.LoadHTMLFiles(d + "../templates/index.html")
 
 
 
